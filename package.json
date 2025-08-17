@@ -1,0 +1,22 @@
+{
+  "name": "discord-bot-project-v2",
+  "version": "1.0.0",
+  "description": "// =================================================================\r //\r //               DISCORD.JS BOT STRUCTURE WITH EXPRESS API\r //\r // =================================================================\r //\r // This is a best-practice project structure for a Discord.js bot\r // that also includes an Express.js server for a REST API.\r // It's designed to be scalable and easy to maintain.\r //\r // -------------------- DIRECTORY STRUCTURE -------------------------\r //\r // my-discord-bot/\r // │\r // ├── commands/\r // │   └── utility/\r // │       └── ping.js         // Example slash command\r // │\r // ├── events/\r // │   ├── ready.js            // Example event handler for when the bot is ready\r // │   └── interactionCreate.js // Example event handler for interactions (slash commands)\r // │\r // ├── .env                    // Environment variables (token, clientID, etc.)\r // ├── deploy-commands.js      // Script to register slash commands with Discord\r // ├── index.js                // Main entry point for both the bot and the API\r // └── package.json            // Project dependencies and scripts\r //\r // =================================================================",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "deploy": "node deploy-commands.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "compression": "^1.8.1",
+    "discord.js": "^14.11.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "helmet": "^8.1.0",
+    "winston": "^3.17.0"
+  },
+  "author": "Codename_T",
+  "license": "ISC"
+}
