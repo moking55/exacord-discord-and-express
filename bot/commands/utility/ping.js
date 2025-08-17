@@ -8,6 +8,7 @@ module.exports = {
 		.setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
 	// Add a permissions property for our server-side check
 	permissions: [PermissionFlagsBits.ManageMessages],
+	cooldown: 5, // seconds, optional
 	async execute(interaction) {
         const sent = await interaction.reply({ content: 'Pinging...', fetchReply: true });
 		const apiLatency = Math.round(interaction.client.ws.ping);
