@@ -10,9 +10,10 @@ module.exports = {
 	permissions: [PermissionFlagsBits.ManageMessages],
 	cooldown: 5, // seconds, optional
 	async execute(interaction) {
-        const sent = await interaction.reply({ content: 'Pinging...', fetchReply: true });
+		await interaction.reply({ content: 'Pinging...' });
+		const sent = await interaction.fetchReply();
 		const apiLatency = Math.round(interaction.client.ws.ping);
-        const latency = sent.createdTimestamp - interaction.createdTimestamp;
+		const latency = sent.createdTimestamp - interaction.createdTimestamp;
 		await interaction.editReply(`Pong! Roundtrip latency: ${latency}ms. API Latency: ${apiLatency}ms`);
 	},
 };

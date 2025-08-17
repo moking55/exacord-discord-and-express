@@ -28,6 +28,9 @@ module.exports = {
   // Required: the runtime handler
   async execute(interaction) {
     const input = interaction.options.getString("input") ?? "world";
-    await interaction.reply({ content: `Hello, ${input}!`, ephemeral: false });
+    await interaction.reply({
+      content: `Hello, ${input}!`,
+      flags: [MessageFlags.Ephemeral],
+    });
   },
 };

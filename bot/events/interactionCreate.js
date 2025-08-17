@@ -1,5 +1,5 @@
-const { Events } = require("discord.js");
-const { runChecks } = require('../../bot/utils/interactionChecks');
+const { Events, MessageFlags } = require("discord.js");
+const { runChecks } = require("../../bot/utils/interactionChecks");
 
 module.exports = {
   name: Events.InteractionCreate,
@@ -18,7 +18,10 @@ module.exports = {
     // Run centralized checks (permissions, roles, bot perms)
     const checkResult = await runChecks(interaction, command);
     if (!checkResult.ok) {
-      return interaction.reply({ content: checkResult.reply, ephemeral: true });
+      return interaction.reply({
+        content: checkResult.reply,
+        flags: [MessageFlags.Ephemeral],
+      });
     }
 
     try {
@@ -28,12 +31,12 @@ module.exports = {
       if (interaction.replied || interaction.deferred) {
         await interaction.followUp({
           content: "There was an error while executing this command!",
-          ephemeral: true,
+        flags: [MessageFlags.Ephemeral],
         });
       } else {
         await interaction.reply({
           content: "There was an error while executing this command!",
-          ephemeral: true,
+        flags: [MessageFlags.Ephemeral],
         });
       }
     }
